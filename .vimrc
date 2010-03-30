@@ -45,6 +45,8 @@ filetype plugin on    " Enable filetype-specific plugins
 " File Types
 au BufNewFile,BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.as set filetype=actionscript
+au BufNewFile,BufRead *.as set noexpandtab
+au BufNewFile,BufRead *.hx set noexpandtab
 " XML folding
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
@@ -156,6 +158,49 @@ let Tlist_Show_One_File = 1
 " actionscript language
 let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
 nnoremap <c-e> :TlistToggle <CR>
+
+" NeoComplCache
+" Use neocomplcache. 
+let g:NeoComplCache_EnableAtStartup = 1 
+" Use smartcase. 
+let g:NeoComplCache_SmartCase = 1 
+" Use camel case completion. 
+let g:NeoComplCache_EnableCamelCaseCompletion = 1 
+" Use underbar completion. 
+" let g:NeoComplCache_EnableUnderbarCompletion = 1 
+" Set minimum syntax keyword length. 
+let g:NeoComplCache_MinSyntaxLength = 3 
+" Set manual completion length. 
+let g:NeoComplCache_ManualCompletionStartLength = 0 
+" Set minimum keyword length. 
+let g:NeoComplCache_MinKeywordLength = 3 
+
+" Print caching percent in statusline. 
+let g:NeoComplCache_CachingPercentInStatusline = 1 
+
+" Define dictionary. 
+let g:NeoComplCache_DictionaryFileTypeLists = { 
+      \ 'default' : '', 
+      \ 'vimshell' : $HOME.'/.vimshell_hist', 
+      \ 'scheme' : $HOME.'/.gosh_completions', 
+      \ 'scala' : $DOTVIM.'/dict/scala.dict', 
+      \ 'ruby' : $DOTVIM.'/dict/ruby.dict' 
+      \ } 
+
+" Define keyword. 
+if !exists('g:NeoComplCache_KeywordPatterns') 
+  let g:NeoComplCache_KeywordPatterns = {} 
+endif 
+let g:NeoComplCache_KeywordPatterns['default'] = '\h\w*' 
+
+let g:NeoComplCache_SnippetsDir = $HOME.'/snippets' 
+
+" Plugin key-mappings. 
+imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand) 
+smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand) 
+inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>" 
+inoremap <expr><silent><C-g>     neocomplcache#undo_completion() 
+inoremap <expr><C-s>     neocomplcache#complete_common_string()
 
 colo vividchalk
 colo vividchalk
