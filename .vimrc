@@ -60,6 +60,10 @@ inoremap <C-L> <C-O>:nohls<CR>
 " inoremap <c-r> <c-o>:source ~/.vimrc
 " vnoremap <c-r> <c-c>:source ~/.vimrc
 map <F2> <Esc>:1,$!xmllint --format -<CR>
+map <F11> :set hls!<Bar>set hls?<CR>
+map <F10> :set paste!<Bar>set paste?<CR>
+map <F9>  :set wrap!<Bar>set wrap?<CR>
+
 
 " Abbr
 function! Tlist_Get_Function_Name()
@@ -146,7 +150,7 @@ let Grep_Default_Options = '-i'
 let Grep_Skip_Dirs = '.svn'
 let Grep_Skip_Files = '*~ *.swp tags'
 let Grep_Find_Use_Xargs = 0
-let Grep_Default_Filelist = '*.rb'
+let Grep_Default_Filelist = '*.as'
 
 
 " Taglist
