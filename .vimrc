@@ -83,6 +83,12 @@ endfunction
 let g:fuf_maxMenuWidth = 180
 let g:fuf_dir_exclude = '\/$|\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.swf$|/Debug/|/Bin/|/ClientBin/|/App_Data/'
 let g:fuf_abbrevMap = {
+	\   "^hc" : [
+	\     "~/svn/hc/**/"
+	\   ],
+	\   "^coco" : [
+	\     "~/svn/integration/trunk/cocoa/**/"
+	\   ],
 	\   "^as2s" : [
 	\     "~/svn/integration/trunk/as2/src/**/"
 	\   ],
@@ -123,7 +129,7 @@ let g:fuf_abbrevMap = {
 	\     "~/svn/r2/trunk/as2/**/"
 	\		],
 	\   "^sl3" : [
-	\     "~/svn/vip/trunk/silverlight/**/"
+	\     "~/svn/vip/silverlight/**/"
 	\   ],
 	\   "^vip3" : [
 	\     "~/svn/vip/trunk/as3/**/"
