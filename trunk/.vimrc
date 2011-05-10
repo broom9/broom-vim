@@ -12,6 +12,9 @@ set ic " Ignore case when searching
 set noerrorbells " Disable error beep
 set visualbell t_vb= " Disable error beep for gvim
 set nofoldenable " Disable folding when opening a file
+let mapleader=","
+set autoread
+
 
 " Complex global settings/tweaking
 
@@ -47,6 +50,10 @@ au BufNewFile,BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.as set filetype=actionscript
 au BufNewFile,BufRead *.as set noexpandtab
 au BufNewFile,BufRead *.hx set noexpandtab
+au BufNewFile,BufRead *.py set noexpandtab
+au BufNewFile,BufRead *.java set noexpandtab
+au BufNewFile,BufRead *.h set noexpandtab
+au BufNewFile,BufRead *.m set noexpandtab
 " XML folding
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
@@ -63,6 +70,10 @@ map <F2> <Esc>:1,$!xmllint --format -<CR>
 map <F11> :set hls!<Bar>set hls?<CR>
 map <F10> :set paste!<Bar>set paste?<CR>
 map <F9>  :set wrap!<Bar>set wrap?<CR>
+
+map <F6>  :%s//\r/g<CR>
+vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
 
 
 " Abbr
@@ -81,16 +92,25 @@ endfunction
 
 " Fuf
 let g:fuf_maxMenuWidth = 180
-let g:fuf_dir_exclude = '\/$|\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.swf$|/Debug/|/Bin/|/ClientBin/|/App_Data/'
+let g:fuf_dir_exclude = '\/$|\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.swf$|/Debug/|/Bin/|/ClientBin/|/App_Data/|\.class$'
 let g:fuf_abbrevMap = {
 	\   "^hc" : [
 	\     "~/svn/hc/**/"
+	\   ],
+	\   "^jss" : [
+	\     "~/svn/integration/trunk/js/**/"
+	\   ],
+	\   "^andr" : [
+	\     "~/svn/integration/trunk/android/**/"
 	\   ],
 	\   "^coco" : [
 	\     "~/svn/integration/trunk/cocoa/**/"
 	\   ],
 	\   "^as2s" : [
 	\     "~/svn/integration/trunk/as2/src/**/"
+	\   ],
+	\   "^old3" : [
+	\     "~/svn/integration/as3_old_src/**/"
 	\   ],
 	\   "^as3s" : [
 	\     "~/svn/integration/trunk/as3/src/**/"
@@ -128,6 +148,12 @@ let g:fuf_abbrevMap = {
 	\   "^r22" : [
 	\     "~/svn/r2/trunk/as2/**/"
 	\		],
+	\   "^r2js" : [
+	\     "~/svn/r2/trunk/js/**/"
+	\   ],
+	\   "^r2an" : [
+	\     "~/svn/r2/trunk/android/**/"
+	\   ],
 	\   "^sl3" : [
 	\     "~/svn/vip/silverlight/**/"
 	\   ],
@@ -150,13 +176,11 @@ nnoremap <silent> <F4> :NERDTreeToggle <CR>
 let NERDSpaceDelims = 1
 
 
-" Grep
-nnoremap <silent> <F3> :Rgrep<CR> 
-let Grep_Default_Options = '-i'
-let Grep_Skip_Dirs = '.svn'
-let Grep_Skip_Files = '*~ *.swp tags'
-let Grep_Find_Use_Xargs = 0
-let Grep_Default_Filelist = '*.as'
+" Ack
+nnoremap <F3> :Ack 
+
+" xobjc
+nnoremap <c-x> <ESC>:!python ~/svn/integration/trunk/tools/cocoa/xobjc/xobjc.py %<CR>
 
 
 " Taglist
@@ -169,5 +193,4 @@ let Tlist_Show_One_File = 1
 let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
 nnoremap <c-e> :TlistToggle <CR>
 
-colo vividchalk
-colo vividchalk
+colo ir_black

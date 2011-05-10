@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/weiwei/svn/r2/trunk/as3/OSMFPlugin/api/.settings'
+let g:netrw_dirhist_2='/Users/weiwei/tmp'
+let g:netrw_dirhist_3='/Users/weiwei/svn/flam-build/flex_sdk_4.0.0.14159'
+let g:netrw_dirhist_4='/Users/weiwei/projects/android-sdk-mac_x86/platforms/android-8/templates'
+let g:netrw_dirhist_5='/Users/weiwei/svn/integration/trunk/js/build'
+let g:netrw_dirhist_6='/Users/weiwei/svn/r2/trunk/as3/VastProxyRenderer'
+let g:netrw_dirhist_7='/Users/weiwei/svn/integration/trunk/as3/build'
+let g:netrw_dirhist_8='/Users/weiwei/svn/r2/trunk/db/content_type_transform_template'
